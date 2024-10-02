@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 
-void my_recalloc(void *memptr, size_t num, size_t size);
+#include "common.h"
+
+void *my_recalloc(stack *stk, size_t num, size_t new_size);
 
 #endif

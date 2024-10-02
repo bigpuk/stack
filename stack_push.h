@@ -3,6 +3,6 @@
 
 #include "common.h"
 
-int stack_push(stack *stk);
+int stack_push(stack *stk, int num_to_push);
 
 #endif

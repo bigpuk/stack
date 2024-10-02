@@ -3,9 +3,11 @@
 
 #include <stdlib.h>
 
+typedef int elem_t;
+
 struct stack
 {
-    void *memptr;
+    elem_t *memptr;
     size_t size;
     size_t capacity;
 };
