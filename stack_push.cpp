@@ -11,7 +11,8 @@ int stack_push(stack *stk, int num_to_push)
     
     if(stk->capacity < (stk->size) + 1)
     {
-        my_recalloc(stk, (stk->size) * 2, sizeof(int *));
+        my_recalloc(stk, (stk->capacity) * UP_MULTIPLIER, sizeof(int *));
+        (stk->capacity) *= UP_MULTIPLIER;
     }
 
     stk->memptr[stk->size] = num_to_push;

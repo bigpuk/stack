@@ -1,9 +1,15 @@
 #ifndef DUMP_H
 #define DUMP_H
 
-#define DUMP(arg) do                \       //TODO функциоанльные макросы погуглить
-{                                   \
-    stack_dump(__LINE__, __LINE__); \
-} while(0);                         \
+#include <stdio.h>
 
-#endif
+#include "common.h"                 //TODO как дамп юзать
+
+int stack_dump(stack *stk);
+
+#define DUMP(arg) do                                    \
+{                                                       \
+    stack_dump(__LINE__, __LINE__, __LINE__, __LINE__); \
+}while(0);                                              \
+
+#endif                                                      //TODO функциоанльные макросы погуглить

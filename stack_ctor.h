@@ -5,6 +5,6 @@
 
 #include "common.h"
 
-int stack_ctor(stack *stk);
+int stack_ctor(stack *stk, size_t capacity);
 
 #endif

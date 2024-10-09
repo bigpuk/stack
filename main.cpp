@@ -8,13 +8,13 @@
 
 int main()
 {                               //ctor, pop, push, top
-    printf("ded\n");
-
     int num = 7;
+
+    size_t default_capacity = 16;
 
     stack stk = {};
 
-    stack_ctor(&stk);
+    stack_ctor(&stk, default_capacity);
     stack_push(&stk, num);
     printf("%d", stack_pop(&stk));
 }
