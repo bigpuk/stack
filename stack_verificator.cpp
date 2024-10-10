@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include"stack_verificator.h"
+#include "stack_verificator.h"
 
 int stack_verificator(stack *stk)
 {
@@ -13,6 +13,5 @@ int stack_verificator(stack *stk)
                                                                 //TODO hash
     if(stk->size > stk->capacity) flag = false;
 
-    if(flag) return 0;
-    else return 1;
+    return !flag;
 }

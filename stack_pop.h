@@ -5,4 +5,7 @@
 
 int stack_pop(stack *stk);
 
+#define DOWN_DEVIDER 2
+#define DOWN_TRNSITIONAL_VALUE 2
+
 #endif

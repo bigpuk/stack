@@ -5,6 +5,7 @@
 #include "my_recalloc.h"
 #include "stack_ctor.h"
 #include "stack_push.h"
+#include "stack_dump.h"
 
 int main()
 {                               //ctor, pop, push, top
@@ -16,5 +17,8 @@ int main()
 
     stack_ctor(&stk, default_capacity);
     stack_push(&stk, num);
+
+    DUMP(&stk);
+
     printf("%d", stack_pop(&stk));
 }

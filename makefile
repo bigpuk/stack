@@ -1,11 +1,17 @@
 
 DED_FLAGS=-Wall -Wextra -Weffc++ -Wcast-align -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wfloat-equal -Wformat-security -Wformat=2 -Wignored-qualifiers -Winit-self -Winline -Wlogical-op -Wmain -Wmissing-declarations -Wno-missing-field-initializers -Wmissing-include-dirs -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wswitch-default -Wswitch-enum -Wtype-limits -Wundef -Wunreachable-code -Wwrite-strings -fexceptions -g -pipe -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC
-FILE_OBJECTS=main.o my_recalloc.o stack_ctor.o stack_push.o stack_pop.o recalloc_check.o stack_destructor.o stack_verificator.o stack_dump.o errors.o
+FILE_OBJECTS=main.o my_recalloc.o stack_ctor.o stack_push.o stack_pop.o stack_destructor.o stack_verificator.o stack_dump.o errors.o
 EXE_NAME=stack
+
+# TODO read about
+# addprefix
+# patsubst
+# wildcard * ->  
 
 all: stack
 
 stack: $(FILE_OBJECTS)
+	@echo "[LD] Linking"
 	@g++ $(DED_FLAGS) $(FILE_OBJECTS) -o $(EXE_NAME)
 
 main.o: main.cpp
@@ -31,10 +37,6 @@ stack_pop.o: stack_pop.cpp
 stack_destructor.o: stack_destructor.cpp
 	@echo "[CXX] stack_destructor"
 	@g++ $(DED_FLAGS) -c stack_destructor.cpp -o stack_destructor.o
-
-recalloc_check.o: recalloc_check.cpp
-	@echo "[CXX] recalloc_check"
-	@g++ $(DED_FLAGS) -c recalloc_check.cpp -o recalloc_check.o
 
 stack_verificator.o: stack_verificator.cpp
 	@echo "[CXX] stack_verificator"

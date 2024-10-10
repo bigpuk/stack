@@ -3,23 +3,28 @@
 
 #include "stack_pop.h"
 #include "my_recalloc.h"
+#include "stack_verificator.h"
 
 int stack_pop(stack *stk)
 {
     assert(stk);
 
-    int temp = 0;
+    stack_verificator(stk);
 
-    temp = stk->memptr[(stk->size) - 1];
+    int return_value = 0;
+
+    return_value = stk->memptr[(stk->size) - 1];
     stk->memptr[(stk->size) - 1] = POISON;
 
     (stk->size)--;
 
-    if(stk->capacity > (stk->size) * 2)
+    if(stk->capacity > (stk->size) * DOWN_TRNSITIONAL_VALUE)
     {
-        my_recalloc(stk, (stk->capacity) / 2, sizeof(int *));
-        (stk->capacity) /= 2;
+        my_recalloc(stk, (stk->capacity) / DOWN_DEVIDER, sizeof(int *));
+        (stk->capacity) /= DOWN_DEVIDER;
     }
 
-    return temp;
+    stack_verificator(stk);
+
+    return return_value;
 }
