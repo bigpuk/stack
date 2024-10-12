@@ -1,2 +1,4 @@
 *.o
 *.dmp
+test.cpp
+test.exe

@@ -11,14 +11,30 @@ int main()
 {                               //ctor, pop, push, top
     int num = 7;
 
-    size_t default_capacity = 16;
+    size_t default_capacity = DEFAULT_CAPACITY;
 
     stack stk = {};
 
     stack_ctor(&stk, default_capacity);
+
+
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
+    stack_push(&stk, num);
     stack_push(&stk, num);
 
     DUMP(&stk);
 
-    printf("%d", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    printf("%d\n", stack_pop(&stk));
+    
 }

@@ -8,8 +8,6 @@ EXE_NAME=stack
 # patsubst
 # wildcard * ->  
 
-$(addprefix /src, )
-
 stack: $(FILE_OBJECTS)
 	g++ $^ -o stack
 

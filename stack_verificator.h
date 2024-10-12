@@ -2,7 +2,8 @@
 #define STACK_VERIFICATOR_H
 
 #include "common.h"
+#include "errors.h"
 
-int stack_verificator(stack *stk);
+ERRORS stack_verificator(stack *stk);
 
 #endif
