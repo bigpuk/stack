@@ -1,4 +1,4 @@
-*.o
+build\
 *.dmp
-test.cpp
+src\test.cpp
 test.exe

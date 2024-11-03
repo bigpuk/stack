@@ -1,24 +1,22 @@
 
 DED_FLAGS=-Wall -Wextra -Weffc++ -Wcast-align -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wfloat-equal -Wformat-security -Wformat=2 -Wignored-qualifiers -Winit-self -Winline -Wlogical-op -Wmain -Wmissing-declarations -Wno-missing-field-initializers -Wmissing-include-dirs -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wswitch-default -Wswitch-enum -Wtype-limits -Wundef -Wunreachable-code -Wwrite-strings -fexceptions -g -pipe -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC
-FILE_OBJECTS=main.o my_recalloc.o stack_ctor.o stack_push.o stack_pop.o stack_destructor.o stack_verificator.o stack_dump.o errors.o
+FILES=main.cpp my_recalloc.cpp stack_ctor.cpp stack_push.cpp stack_pop.cpp stack_destructor.cpp stack_verificator.cpp stack_dump.cpp errors.cpp
+FILE_OBJECTS=$(addprefix build\, $(patsubst %.cpp, %.o, $(FILES)))
 EXE_NAME=stack
 
 # TODO read about
 # addprefix
 # patsubst
 # wildcard * ->  
+# -l -L, стат. библиотека
+
+#TODO разбить на 3 проги
 
 stack: $(FILE_OBJECTS)
-	g++ $^ -o stack
+	g++ $^ -Iinclude -o stack
 
-$(FILE_OBJECTS): %.o: %.cpp
+build\%.o: src\%.cpp
 	g++ -c $^ -o $@
 
-stack.cpp:
-	echo > stack.cpp
-
-%.cpp:
-	touch $@
-
 clean:
-	rm -rf *.o *.exe
+	rm -rf biuld\*.o *.exe
